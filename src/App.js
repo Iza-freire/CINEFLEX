@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./assents/GlobalStyle";
+import NavBar from "./componentes/NavBar/NavBar";
+import HomePage from "./Pages/HomePage";
+import SessionPages from "./Pages/SessionPage";
+import SeatsPage from "./Pages/SeatsPage";
+import SuccessPage from "./Pages/SuccessPage";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <NavBar/>
+      {/**<HomePage/>**/}
+     <SessionPages/>
+      {/*<SuccessPage/>*/}
+    </>
   );
 }
 
 export default App;
+
+
