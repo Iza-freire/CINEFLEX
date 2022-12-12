@@ -23,7 +23,6 @@ const HearderNav = styled.div`
     font-weight: 400;
     top: 0;
     a{
-        text-decoration:none;
         color:#E8833A;
     }
 

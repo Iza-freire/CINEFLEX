@@ -1,13 +1,13 @@
 import styled from "styled-components"
 
-export default function Footer() {
+export default function Footer({poster, title}) {
     return (
         <FooterOfContainer>
             <PosterOfContainer>
-                <img src={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
+                <img src={poster}/>
             </PosterOfContainer>
             <TitleOfContainer>
-                <p>Pato</p>
+                {title}
             </TitleOfContainer>
         </FooterOfContainer>
     )

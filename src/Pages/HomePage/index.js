@@ -10,8 +10,8 @@ export default function HomePage(){
     
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies`)
-        promise.then(res => setFilmes(res.data))
-        promise.catch(err => console.log(err.response.data))
+        promise.then(resp => setFilmes(resp.data))
+        promise.catch(erro => console.log(erro.response.data))
     }, [])
 
    if (!filmes){

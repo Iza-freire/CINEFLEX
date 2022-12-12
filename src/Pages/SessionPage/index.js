@@ -1,20 +1,36 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import styled from "styled-components"
+import Cards from "../../componentes/Cards/Cards"
 import Footer from "../../componentes/Footer/Footer"
 
 export default function SessionPages({ }) {
+    const [filme, setFilme] = useState(undefined)
+    const paramentros = useParams()
+
+     useEffect(() => {
+        const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${paramentros.idFilme}/showtimes`)
+        promise.then(resp => setFilme(resp.data))
+        promise.catch(erro => console.log(erro.response.data))
+    }, [])
+    
+     if (!filme){
+    return <div className="Carregando">Carregando pagina</div>
+   }
+   console.log(filme)
+
     return (
         <>
         <SessionContainer>
             <h1>Selecione o horário</h1>
-            <SessionData>
-                <p>Quinta-feira - 24/06/2021</p>
-                <SessionData>
-                    <button>15:30</button>
-                    <button>15:30</button>
-                </SessionData>
-            </SessionData>
+            <>
+                {filme.days.map(f => (
+                    <Cards key={f.id} filme={f} />
+                ))}
+            </>
         </SessionContainer>
-        <Footer/>
+        <Footer poster={filme.posterURL} title={filme.title}/>
         </>
     )
 }
@@ -35,12 +51,4 @@ const SessionContainer = styled.div`
         margin-bottom: 20px;
     }
 
-`
-const SessionData = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-top: 30px;
-    padding: 0 20px;
-    
 `
