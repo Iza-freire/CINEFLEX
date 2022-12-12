@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 
 export default function NavBar(){
     return(
-        <HearderNav>CINEFLIX</HearderNav>
+        <HearderNav>
+            <Link to="/">CINEFLIX</Link>
+        </HearderNav>
     )
 }
 
@@ -14,11 +17,14 @@ const HearderNav = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#E8833A;
     font-size: 34px;
     position: fixed;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     top: 0;
+    a{
+        text-decoration:none;
+        color:#E8833A;
+    }
 
 `

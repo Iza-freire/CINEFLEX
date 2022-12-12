@@ -1,21 +1,30 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 import CardMovies from "../../componentes/CardMovie/CardMovie"
 
 
 export default function HomePage(){
+    const [filmes, setFilmes] = useState(undefined)
+    
+    useEffect(() => {
+        const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies`)
+        promise.then(res => setFilmes(res.data))
+        promise.catch(err => console.log(err.response.data))
+    }, [])
+
+   if (!filmes){
+    return <div className="Carregando">Carregando pagina</div>
+   }
     return(
         <HomeContainer>
         Selecione o filme 
         <ListOfContainer>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
-            <CardMovies URL={"https://static-cse.canva.com/blob/759754/IMAGE1.jpg"}/>
+            {filmes.map(f => (
+                <Link to={`/sessoes/${f.id}`} key={f.id}> <CardMovies posterURL={f.posterURL}/></Link>
+            ))}
+            
         </ListOfContainer>
         </HomeContainer>
     )
