@@ -31,7 +31,7 @@ export default function PaginaDeSessoes() {
                 ))}
             </>
         </ConteudoDaSessoes>
-        <Rodape poster={filme.posterURL} titulo={filme.title}/>
+        <Rodape data-test="footer" poster={filme.posterURL} titulo={filme.title}/>
         </>
     )
 }

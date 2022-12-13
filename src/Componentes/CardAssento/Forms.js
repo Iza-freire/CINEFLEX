@@ -6,7 +6,8 @@ export default function Forms() {
     return (
         <ConteudoForm >
             <h1>Nome do Comprador:</h1>
-            <input 
+            <input
+                data-test="client-name"
                 name="name"
                 placeholder="Digite seu nome..."
                 type="text"
@@ -14,6 +15,7 @@ export default function Forms() {
 
             <h1>CPF do Comprador:</h1>
             <input
+                data-test="client-cpf"
                 name="cpf"
                 placeholder="Digite seu CPF..."
                 type="number"

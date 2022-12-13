@@ -6,8 +6,9 @@ import PaginaDeSessoes from "./Paginas/PaginaDeSessoes"
 import NavBar from "./Componentes/NavBar"
 import PaginaSucesso from "./Paginas/PaginaSucesso"
 
-function App() {
 
+function App() {
+ 
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -15,8 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<PaginaInicial/>}/>
         <Route path="/sessoes/:idFilme" element={<PaginaDeSessoes />}/>
-        <Route path="/assentos/:idSessao" element={<PaginaDeAssentos/>}/>
-        <Route path="/assentos/" element={<PaginaSucesso/>}/>
+        <Route path="/assentos/:idSessao" element={<PaginaDeAssentos />}/>
+        <Route path="/sucesso" element={<PaginaSucesso/>}/>
       </Routes>
     </BrowserRouter>
   )

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function CardDoFilme({ posterURL }) {
     return (
-        <ConteinerDoFilme>
+        <ConteinerDoFilme data-test="movie" >
             <ImagemFilme src={posterURL} />
         </ConteinerDoFilme>
     )

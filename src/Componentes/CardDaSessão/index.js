@@ -4,12 +4,12 @@ import styled from "styled-components"
 export default function CardDaSessão({ filme }) {
     return (
         
-        <ConteudoDaSessao>
+        <ConteudoDaSessao data-test="movie-day">
             {filme.weekday} - {filme.date}
-            <ConteudoBotao>
+            <ConteudoBotao data-test="movie-day">
                 {filme.showtimes.map((d) => (
                     <Link key={d.name} to={`/assentos/${d.id}`}>
-                        <button>{d.name}</button>
+                        <button data-test="showtime" >{d.name}</button>
                     </Link>
                 ))}
             </ConteudoBotao>

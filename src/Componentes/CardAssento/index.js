@@ -1,10 +1,23 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
+import { Colors } from "../../assets/GlobalStyle"
 
+export default function CardAssento({ seat, handleSeats, isSelected }) {
+    const [status, setStatus] = useState("Selecionado")
 
-export default function CardAssento() {
+    useEffect(() => {
+        if (isSelected) {
+            setStatus("Selecionado")
+        } else if (seat.isAvailable) {
+            setStatus("Disponivel")
+        } else {
+            setStatus("Indisponivel")
+        }
+    }, [isSelected])
+
     return (
-        <ItemdoAssento >
-            1
+        <ItemdoAssento data-test="seat" status={status} onClick={() => handleSeats(seat)}>
+            {seat.name}
         </ItemdoAssento>
     )
 }
@@ -13,9 +26,8 @@ const ItemdoAssento = styled.div`
     height: 26px;
     width: 26px;
     border-radius: 18px;
-    color: #000000;
-    border: 1px solid #808F9D;
-    background-color: #C3CFD9 ;
+    border: 1px solid ${props => Colors[props.status].border};
+    background-color: ${props => Colors[props.status].border};
     font-size: 12px;
     font-family: 'Roboto';
     margin: 5px;
