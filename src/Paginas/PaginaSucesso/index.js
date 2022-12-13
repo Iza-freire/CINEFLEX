@@ -1,27 +1,27 @@
 import styled from "styled-components"
 
-export default function SuccessPage(){
+export default function PaginaSucesso(){
     return(
         <>
-        <SuccessContainer>
-                <Titulo>Pedido feito <br /> com sucesso!</Titulo>
+        <ContainerPagina>
+                <h1>Pedido feito <br /> com sucesso!</h1>
                 <Texto>
-                    <strong><p>Filme e sessão</p></strong>
+                    <h5>Filme e sessão</h5>
                     <p>Adão Negro</p>
                     <p>24/06/2021 15:00</p>
                 </Texto>
                 <Texto>
-                    <strong><p>Ingressos</p></strong>
+                    <h5>Ingressos</h5>
                     <p>Assento 15</p>
                     <p>Assento 16</p>
                 </Texto>
                 <Texto>
-                    <strong><p>Comprador</p></strong>
+                    <h5>Comprador</h5>
                     <p>Nome: João da Silva Sauro</p>
                     <p>CPF: 123.456.789-10</p>
                 </Texto>
                 <button>Voltar pra Home</button>
-        </SuccessContainer>
+        </ContainerPagina>
        
 
         </>
@@ -29,7 +29,7 @@ export default function SuccessPage(){
 }
 
 
-const SuccessContainer = styled.div`
+const ContainerPagina = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,26 +41,26 @@ const SuccessContainer = styled.div`
     button {
         margin-top: 50px;
     }
-`
-const Titulo = styled.h1`
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #247A6B;
+    h1{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #247A6B;
+    }
 `
 const Texto = styled.div`
     width: 100%;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 30px;
-    strong {
-        font-weight: bold;
+    h5 {
+        font-weight: 700;
         margin-bottom: 15px;
     }
-`
+ `

@@ -58,24 +58,34 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
         padding: 0 20px;
     }
+
     input {
 	background: #FFFFFF;
-	border: 1px solid #D5D5D5;
+	border: 1px solid #D4D4D4;
 	border-radius: 3px;
-	height: 50px;
+	height: 51px;
 	margin-bottom: 25px;
-	margin-top: 10px;
-	padding: 0 10px;
+	margin-top: 15px;
+	padding: 0 8px;
 	font-family: 'Roboto';
 	font-size: 18px;
 	display: flex;
 	align-items: center;
+    color: #293845;
 	&::placeholder{
 		font-style: italic;
+        color: #AFAFAF;
 	}
     }
-     a{
+    a{
         text-decoration: none;
     }
 `
 export default GlobalStyle
+
+export const Colors = {
+    Selecionado: { background: "#1AAE9E", border: "#0E7D71" },
+    Disponivel: { background: "#C3CFD9", border: "#808F9D" },
+    Indisponivel: { background: "#FBE192", border: "#F7C52B" }
+}
+export const UrlComum = "https://mock-api.driven.com.br/api/v8/cineflex"

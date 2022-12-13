@@ -2,17 +2,18 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
-import Cards from "../../componentes/Cards/Cards"
-import Footer from "../../componentes/Footer/Footer"
+import { UrlComum } from "../../assets/GlobalStyle"
+import CardDaSessão from "../../Componentes/CardDaSessão"
+import Rodape from "../../Componentes/Rodape"
 
-export default function SessionPages({ }) {
+
+
+export default function PaginaDeSessoes() {
     const [filme, setFilme] = useState(undefined)
-    const paramentros = useParams()
+    const parametros = useParams()
 
      useEffect(() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${paramentros.idFilme}/showtimes`)
-        promise.then(resp => setFilme(resp.data))
-        promise.catch(erro => console.log(erro.response.data))
+        axios.get(`${UrlComum}/movies/${parametros.idFilme}/showtimes`).then(resp => setFilme(resp.data)).catch(erro => console.log(erro.response.data))
     }, [])
     
      if (!filme){
@@ -22,28 +23,28 @@ export default function SessionPages({ }) {
 
     return (
         <>
-        <SessionContainer>
+        <ConteudoDaSessoes>
             <h1>Selecione o horário</h1>
             <>
                 {filme.days.map(f => (
-                    <Cards key={f.id} filme={f} />
+                    <CardDaSessão key={f.id} filme={f} />
                 ))}
             </>
-        </SessionContainer>
-        <Footer poster={filme.posterURL} title={filme.title}/>
+        </ConteudoDaSessoes>
+        <Rodape poster={filme.posterURL} titulo={filme.title}/>
         </>
     )
 }
-const SessionContainer = styled.div`
+const ConteudoDaSessoes = styled.div`
     display: flex;
     flex-direction: column;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 140px;
+    padding-top: 70px;
+    color:#293845;
     font-family: 'Roboto';
     font-size: 24px;
-    text-align: center;
-    color:#293845;;
-    margin-top: 40px;
-    padding-bottom: 120px;
-    padding-top: 70px;
     button{
         width: 80px;
     }

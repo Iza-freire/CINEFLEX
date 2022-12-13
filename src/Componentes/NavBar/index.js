@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-
-export default function NavBar(){
-    return(
-        <HearderNav>
-            <Link to="/">CINEFLIX</Link>
-        </HearderNav>
+export default function NavBar() {
+    return (
+        <NavContainer>
+            <Link to="/">
+                CINEFLEX
+            </Link>
+        </NavContainer>
     )
 }
 
-const HearderNav = styled.div`
+const NavContainer = styled.div`
     width: 100%;
     height: 70px;
     background-color: #C3CFD9;
@@ -25,5 +26,4 @@ const HearderNav = styled.div`
     a{
         color:#E8833A;
     }
-
 `
